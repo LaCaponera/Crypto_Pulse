@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback, use } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Flatlist, Switch, Stylesheet, StatusBar, SafeAreaView} from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, Flatlist, Switch, Stylesheet, StatusBar, SafeAreaProviderBase} from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { INITIAL_ASSETS, CATEGORIES } from '../mockData'
 
@@ -19,7 +19,7 @@ const toggleLiveStream = () => {
 
 //Toggle price sort order between descending and ascending
 const toogleSortOrder = () => {
-    setsortOrder(prev => (prev === 'DESC' ? 'ASC' ? : 'DESC'))
+    setsortOrder(prev => (prev === 'DESC' ? 'ASC' : 'DESC'))
 }
 
 //Simulated real-time telemetry polling enginme with lifecycle cleanup
@@ -112,7 +112,7 @@ const portfolioMetrics = useMemo(() => {
   ), [handleToggleWatchlist, handleSelectAsset]);
 
   return (
-    <SafeAreaView style={styles.safeContainer}>
+    <SafeAreaProvider style={styles.safeContainer}>
       <StatusBar barStyle="dark-content" backgroundColor="#F8FAFC" />
 
        {/* Header Cockpit */}
@@ -205,9 +205,8 @@ const portfolioMetrics = useMemo(() => {
           </View>
         }
       />
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
-}
 
 const styles = StyleSheet.create({
   safeContainer: { flex: 1, backgroundColor: '#F8FAFC' },
