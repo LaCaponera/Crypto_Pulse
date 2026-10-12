@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback, use } from 'react';
-import { View, Text, TextInput, TouchabkeOpacity, Flatlist, Switch, Stylesheet, SafeAreaView, StatusBar } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, Flatlist, Switch, Stylesheet, SafeAreaView, StatusBar } from 'react-native'
 import { INITIAL_ASSETS, CATEGORIES } from '../mockData'
 
 export default function MarketScreen ({ navigation }) {
